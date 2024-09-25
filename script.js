@@ -2,6 +2,7 @@ const switchButton = document.querySelector('#switch-button');
 const model1 = document.querySelector("#magnemite");
 const model2 = document.querySelector("#dragonite");
 
+
 switchButton.addEventListener('click', () => {
     if (model1.getAttribute("scale").x === 0.1) {
         model1.setAttribute("scale", "0 0 0");
@@ -18,6 +19,7 @@ let previousMouseX = 0;
 function rotateModel(event) {
     const magnemiteModel = document.querySelector('#magnemite');
     const dragoniteModel = document.querySelector('#dragonite');
+    const coltModel = document.querySelector('#colt_m1911');
     if (isMouseDown) {
         const deltaX = event.clientX - previousMouseX;
         const rotation = magnemiteModel.getAttribute('rotation');
@@ -27,6 +29,11 @@ function rotateModel(event) {
             z: rotation.z
         });
         dragoniteModel.setAttribute('rotation', {
+            x: rotation.x,
+            y: rotation.y + deltaX * 0.5,
+            z: rotation.z
+        });
+        coltModel.setAttribute('rotation', {
             x: rotation.x,
             y: rotation.y + deltaX * 0.5,
             z: rotation.z
